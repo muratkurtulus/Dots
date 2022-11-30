@@ -3,8 +3,9 @@ pragma solidity ^0.8.13;
 
 import "forge-std/Test.sol";
 import "../src/Dots.sol";
+import "../src/IDots.sol";
 
-contract DotTest is Test {
+contract DotTest is Test, IDots {
     Dots public dot;
     Dots2 public dot2;
     address alice = makeAddr("alice");
@@ -34,8 +35,8 @@ contract DotTest is Test {
         dot2.claimLocation();
     }
 
-    // function testStateAvailable() public {
-    //     assertEq(uint256(dot2.state()), 0);
-    //     dot2.setState(uint256(2));
-    // }
+    function testStateAvailable() public {
+        assertEq(uint256(dot2.state()), 0);
+        dot2.setState(uint8(1));
+    }
 }

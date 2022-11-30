@@ -2,6 +2,7 @@ pragma solidity ^0.8.0;
 
 import "openzeppelin-contracts/security/ReentrancyGuard.sol";
 import "openzeppelin-contracts/access/Ownable.sol";
+import "./IDots.sol";
 
 error OnlyTxOrigin();
 error StateAvailable();
@@ -49,7 +50,7 @@ contract Dots {
     }
 }
 
-contract Dots2 {
+contract Dots2 is IDots {
     enum Types {
         Nulland,
         Argentina,
@@ -74,11 +75,11 @@ contract Dots2 {
         UnitedStates
     }
 
-    enum State {
-        Available,
-        Paused,
-        Completed
-    }
+    // enum State {
+    //     Available,
+    //     Paused,
+    //     Completed
+    // }
 
     State public state;
 
